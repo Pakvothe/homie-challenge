@@ -1,6 +1,6 @@
 # Homie Challenge
 
-Hi! This is my challenge as a frontend developer for homie. It is an online CV, it consumes a fake API created with json-server and allows displaying the user's data.
+Hi! This is my challenge as a frontend developer for homie. It is an online CV developed in React, it consumes a fake API created with json-server and allows displaying the user's data.
 
 ## Installation
 

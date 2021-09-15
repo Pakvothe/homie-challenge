@@ -2,7 +2,8 @@ import React, { createContext, useReducer } from 'react';
 import Reducer from './reducer';
 
 const initialState = {
-    language: 'es'
+    language: 'es',
+    profileId: false
 }
 
 const Store = ({children}) => {

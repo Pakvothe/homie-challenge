@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../global-state/store';
 import strings from './strings';
 import { SkillsContainer, SkillsContent, SkillsTitle, SkillsBar, InterestContent, InterestTitle, InterestIcons } from './skills.styles';
@@ -11,6 +11,37 @@ import Movies from '../../assets/icons/movies';
 const Skills = () => {
     const [state] = useContext(Context);
     const str = strings[state.language];
+    const [languages, setLanguages] = useState();
+    const [skills, setSkills] = useState();
+
+    useEffect(() => {
+        getLanguages()
+        getSkills()
+        // eslint-disable-next-line
+    }, [state.profileId])
+
+    const getLanguages = async () => {
+        const response = await fetch(`http://localhost:3000/languages?profile_id=${state.profileId}`, {
+            method: 'GET'
+        });
+
+        response.json().then(body => {
+            if (response.ok) {
+                setLanguages(body)
+            }
+        })
+    }
+    const getSkills = async () => {
+        const response = await fetch(`http://localhost:3000/skills?profile_id=${state.profileId}`, {
+            method: 'GET'
+        });
+
+        response.json().then(body => {
+            if (response.ok) {
+                setSkills(body)
+            }
+        })
+    }
 
     return (
         <SkillsContainer>
@@ -18,33 +49,21 @@ const Skills = () => {
                 <div className="container">
                     <SkillsTitle>{str.language}</SkillsTitle>
                     <SkillsBar>
-                        <div>
-                            <p>ingles</p>
-                            <progress id="file" max="100" value="70"> 70% </progress>
-                        </div>
-                        <div>
-                            <p>ingles</p>
-                            <progress id="file" max="100" value="70"> 70% </progress>
-                        </div>
-                        <div>
-                            <p>ingles</p>
-                            <progress id="file" max="100" value="70"> 70% </progress>
-                        </div>
+                        {languages && languages.map((lang) => (
+                            <div key={lang.id}>
+                                <p>{lang.name}</p>
+                                <progress id="file" max="100" value={lang.percentage}>{lang.percentage}</progress>
+                            </div>
+                        ))}
                     </SkillsBar>
                     <SkillsTitle>{str.skills}</SkillsTitle>
                     <SkillsBar>
-                        <div>
-                            <p>ingles</p>
-                            <progress id="file" max="100" value="70"> 70% </progress>
-                        </div>
-                        <div>
-                            <p>ingles</p>
-                            <progress id="file" max="100" value="70"> 70% </progress>
-                        </div>
-                        <div>
-                            <p>ingles</p>
-                            <progress id="file" max="100" value="70"> 70% </progress>
-                        </div>
+                    {skills && skills.map((skill) => (
+                            <div key={skill.id}>
+                                <p>{skill.name}</p>
+                                <progress id="file" max="100" value={skill.percentage}>{skill.percentage}</progress>
+                            </div>
+                        ))}
                     </SkillsBar>
                 </div>
             </SkillsContent>

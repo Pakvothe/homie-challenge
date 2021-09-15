@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../../global-state/store';
 import strings from './strings';
 
@@ -24,47 +24,70 @@ import {
 const Education = () => {
     const [state] = useContext(Context);
     const str = strings[state.language];
+    const [education, setEducation] = useState();
+    const [certifications, setCertifications] = useState();
+
+    useEffect(() => {
+        getEducation()
+        getCertifications()
+        // eslint-disable-next-line
+    }, [state.profileId])
+
+    const getEducation = async () => {
+        const response = await fetch(`http://localhost:3000/education?profile_id=${state.profileId}`, {
+            method: 'GET'
+        });
+
+        response.json().then(body => {
+            if (response.ok) {
+                setEducation(body)
+            }
+        })
+    }
+
+    const getCertifications = async () => {
+        const response = await fetch(`http://localhost:3000/certifications?profile_id=${state.profileId}`, {
+            method: 'GET'
+        });
+
+        response.json().then(body => {
+            if (response.ok) {
+                setCertifications(body)
+            }
+        })
+    }
 
     return (
         <EducationContainer>
             <ConnectedList>
-                <ConnectedListItem>
-                    <ConnectedListContent>
-                        <ConnectedListDate>1024 -2018</ConnectedListDate>
-                        <EducationContent>
-                            <EducationContentTitle>
-                                <h3>Instituto mexicano de tecnologia</h3>
-                                <p>Merida, Yucatan</p>
-                            </EducationContentTitle>
-                            <EducationContentText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet faucibus erat. Suspendisse ullamcorper tincidunt efficitur. Vestibulum eu accumsan odio, quis faucibus augue. Nulla facilisis nisi eu justo interdum vestibulum. Nullam consectetur tristique pellentesque. Nunc porttitor scelerisque nisi, eu ornare odio efficitur eu. Ut pretium sit amet ex vel mattis. Nam in congue dui. Pellentesque felis enim, volutpat sed vulputate vel, efficitur vitae lacus. Quisque tempor eget lorem eget mattis. Vivamus molestie, velit eget suscipit sagittis, sapien lacus varius dolor, sed mattis sapien odio lobortis massa.</EducationContentText>
-                        </EducationContent>
-                    </ConnectedListContent>
-                </ConnectedListItem>
-                <ConnectedListItem>
-                    <ConnectedListContent>
-                        <ConnectedListDate>1024 -2018</ConnectedListDate>
-                        <EducationContent>
-                            <EducationContentTitle>
-                                <h3>Instituto mexicano de tecnologia</h3>
-                                <p>Merida, Yucatan</p>
-                            </EducationContentTitle>
-                            <EducationContentText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet faucibus erat. Suspendisse ullamcorper tincidunt efficitur. Vestibulum eu accumsan odio, quis faucibus augue. Nulla facilisis nisi eu justo interdum vestibulum. Nullam consectetur tristique pellentesque. Nunc porttitor scelerisque nisi, eu ornare odio efficitur eu. Ut pretium sit amet ex vel mattis. Nam in congue dui. Pellentesque felis enim, volutpat sed vulputate vel, efficitur vitae lacus. Quisque tempor eget lorem eget mattis. Vivamus molestie, velit eget suscipit sagittis, sapien lacus varius dolor, sed mattis sapien odio lobortis massa.</EducationContentText>
-
-                        </EducationContent>
-                    </ConnectedListContent>
-                </ConnectedListItem>
+                {education && education.map((edu) => (
+                    <ConnectedListItem key={edu.id}>
+                        <ConnectedListContent>
+                            <ConnectedListDate>{edu.date}</ConnectedListDate>
+                            <EducationContent>
+                                <EducationContentTitle>
+                                    <h3>{edu.title}</h3>
+                                    <p>{edu.city}, {edu.country}</p>
+                                </EducationContentTitle>
+                                <EducationContentText>{edu.body}</EducationContentText>
+                            </EducationContent>
+                        </ConnectedListContent>
+                    </ConnectedListItem>
+                    ))}
             </ConnectedList>
-            <LicenceContainer>
+           <LicenceContainer>
                 <h2>{str?.licence}</h2>
-                <LicenceContent>
-                    <img src="https://franco-ortiz.com/static/media/CertfHenry.3507c0dd.jpg" alt="certificate" />
+           { certifications && certifications.map((cert) => (
+                <LicenceContent key={cert.id}>
+                    <img src={cert.image} alt="certificate" />
                     <div>
-                        <LicenceTitle>Scrum Foundation Professional Certificate (SFPC)</LicenceTitle>
-                        <LicenceSubtitle>CertiProf</LicenceSubtitle>
-                        <LicenceDate>Aplicado en Agosto 2019</LicenceDate>
-                        <LicenceCredential>ID Credencial 12345678920</LicenceCredential>
+                        <LicenceTitle>{cert.title} </LicenceTitle>
+                        <LicenceSubtitle>{cert.proof} </LicenceSubtitle>
+                        <LicenceDate>Aplicado en {cert.month} {cert.year}</LicenceDate>
+                        <LicenceCredential>ID Credencial {cert.credential}</LicenceCredential>
                     </div>
                 </LicenceContent>
+            ))}
             </LicenceContainer>
         </EducationContainer>
     )

@@ -5,7 +5,12 @@ const Reducer = (state, action) => {
                 ...state,
                 language: action.payload
             }
-            default: return state;
+        case 'SET_PROFILE':
+            return {
+                ...state,
+                profileId: action.payload
+            }
+        default: return state;
     }
 }
 

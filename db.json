@@ -7,7 +7,8 @@
             "about": "¡Hola! Soy Franco Ortiz, desarrollador front-end. Me gusta diseñar y aplicar todos mis conocimientos para crear un buen trabajo y experiencias memorables.",
             "tel": "+54 1124089678",
             "mail": "ortiz.franco@yandex.com",
-            "linkedin": "https://www.linkedin.com/in/franco-david-ortiz/"
+            "linkedin": "https://www.linkedin.com/in/franco-david-ortiz/",
+            "picture":"https://franco-ortiz.com/static/media/paco.8c1922c9.png"
         }
     ],
     "education": [
@@ -15,7 +16,7 @@
             "id": 1,
             "title": "Henry Bootcamp",
             "body": "Algoritmos, HTML, CSS, Bootstrap,Estrucutras de datos, Javascript ES6+, LESS, React, React Native, GraphQL, MongoDB, Redux, Node, Express, PostgreSQL, Sequelize, Passport, Webpack.calen",
-            "date:": "09/20-12/20",
+            "date": "09/20 - 12/20",
             "city": "Buenos Aires",
             "country": "Argentina",
             "profile_id": 1
@@ -24,7 +25,7 @@
             "id": 2,
             "title": "Tecnico Mecánico de Motocicletas",
             "body": "Carrera Técnica en donde aprendí mecánica general de la motocicleta, motores, electronica, modificaciones y competicion.",
-            "date:": "2018-2020",
+            "date": "2018 - 2020",
             "city": "Buenos Aires",
             "country": "Argentina",
             "profile_id": 1
@@ -48,8 +49,8 @@
             "title": "Frontend Developer",
             "company": "Aconpy/Paiddly",
             "body": "Trabaje para la empresa Aconpy, fue mi primer trabajo como desarrollador. En el mismo me desempeñé como desarrollador Front End en el proyecto 'Paiddly', el cual es un banco virtual. Mis tareas consistían en diseñar la aplicación web desde el lado de funcionamiento hasta los estilos de la misma.",
-            "date:": "01/21-05/21",
-            "month":"4",
+            "date": "01/21 - 05/21",
+            "month": "4",
             "city": "Buenos Aires",
             "country": "Argentina",
             "profile_id": 1
@@ -59,8 +60,8 @@
             "title": "Frontend Developer",
             "company": "Navent",
             "body": "Actualmente me encuentro trabajando como desarrollador Front End en el grupo Navent. El trabajo consiste en dar soporte a todas las webs de Real Estate del grupo Navent ( Zonaprop, Imovelweb, Wimoveis, Inmuebles24, Adondevivir, Plusvalia, Conlallave). Ya sea con implementación de nuevas funciones o corrección de errores de las ya implementadas.",
-            "date:": "05/21-actual",
-            "month":"5",
+            "date": "05/21 - actual",
+            "month": "5",
             "city": "Buenos Aires",
             "country": "Argentina",
             "profile_id": 1
@@ -72,7 +73,7 @@
             "title": "GamingHub",
             "body": "Proyecto Ecommerce del bootcamp 'soyHenry'. Consiste en una tienda online de videojuegos hecha desde cero completamente funcional, permite buscar productos, agregarlos al carrito , comprar y recibirlo. En este proyecto se usaron todas las teconologías aprendidas en el bootcamp y algunas de forma autodidacta. Se trabajó con un grupo de 5 programadores usando metodología SCRUM.",
             "date:": "2020",
-            "image":"https://franco-ortiz.com/static/media/gaminghub.2d13042a.png",
+            "image": "https://franco-ortiz.com/static/media/gaminghub.2d13042a.png",
             "profile_id": 1
         },
         {
@@ -80,7 +81,7 @@
             "title": "Aconpy Landing",
             "body": "Landing Page de la empresa Aconpy. Este proyecto fue un restyling completo de la anticuada web de la empresa para la que trabajo. Se realizó completamente con HTML, CSS y JavaScript vanilla en tan solo 2 días. El proyecto lo llevé a cabo yo solo en su totalidad.",
             "date:": "2021",
-            "image":"https://franco-ortiz.com/static/media/aconpy.3a1debd9.png",
+            "image": "https://franco-ortiz.com/static/media/aconpy.3a1debd9.png",
             "profile_id": 1
         },
         {
@@ -88,7 +89,7 @@
             "title": "Logia sistemas",
             "body": "Landing Page para la empresa de seguridad Logia Sistemas. Se realizó desde 0 desde la lógica hasta el estilo. Se utilizó Redux para el manejo de estados, Styled Components para los estilos y EmailJs para la mensajería. También se realizó el deploy desde 0, incluyendo la adquisición del dominio .com.ar",
             "date:": "2021",
-            "image":"https://franco-ortiz.com/static/media/logia.00b76ab9.png",
+            "image": "https://franco-ortiz.com/static/media/logia.00b76ab9.png",
             "profile_id": 1
         },
         {
@@ -96,7 +97,7 @@
             "title": "Tetris Game",
             "body": "Este es un juego Tetris creado por completo en Javascript con React.js. Se uso Styled Components para darle estilos. El juego es totalmente funcional, se maneja con las flechas del teclado y permite ir subiendo de puntaje y dificultad. Requiere ingresar un usuario para jugar y guarda los 3 mayores puntajes en una base de datos en la nube, de igual manera tiene un contador de visitas en la nube.",
             "date:": "2020",
-            "image":"https://franco-ortiz.com/static/media/tetrisgame.9ba19632.png",
+            "image": "https://franco-ortiz.com/static/media/tetrisgame.9ba19632.png",
             "profile_id": 1
         }
     ],

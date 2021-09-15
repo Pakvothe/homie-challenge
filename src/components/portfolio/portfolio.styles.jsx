@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { device } from '../../breackpoints.styles';
 
 export const PortfolioContainer = styled.div`
     height: 80%;
-	padding: 40px;
+	padding: 30px 10px;
     display: flex;
     flex-wrap: wrap;
 `;
@@ -21,6 +22,10 @@ export const PortfolioCard = styled.div`
     box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.06), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px -1px 1px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
     padding: 12px;
+
+    @media ${device.mobile} { 
+        width: 100%;
+    }
 `;
 
 export const PortfolioImage = styled.img`

@@ -1,19 +1,34 @@
 import styled from 'styled-components';
 import Portfolio from '../../assets/icons/portfolio.svg';
+import { device } from '../../breackpoints.styles';
 
 export const ExperienceContainer = styled.div`
     height: 80%;
-	padding: 40px;
+	padding: 30px 40px;
+
+    @media ${device.mobile} { 
+		padding: 0;
+	}
 `;
 
 export const ConnectedList = styled.ul`
     list-style: none;
+
+    @media ${device.mobile} { 
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	}
 `
 
 export const ConnectedListItem = styled.li`
     position: relative;
     padding-bottom: 2em;
     padding-left: 2em;
+
+    @media ${device.mobile} { 
+		padding: 0;
+	}
 
 	&:last-child {
 		padding-bottom: 0;
@@ -34,6 +49,9 @@ export const ConnectedListItem = styled.li`
         position: absolute;
         left: -7px;
         top: 0;
+        @media ${device.mobile} { 
+			display:none;
+   		}
     }
 
     &:first-child::before {
@@ -56,6 +74,9 @@ export const ConnectedListItem = styled.li`
         position: absolute;
         left: 0;
         top: 17px;
+        @media ${device.mobile} { 
+			display:none;
+   		}
     }
 
     &:first-child::after {
@@ -69,6 +90,10 @@ export const ConnectedListItem = styled.li`
 export const ConnectedListContent = styled.div`
     display: flex;
 	justify-content: flex-start;
+
+    @media ${device.mobile} { 
+		flex-direction: column;
+   	}
 `
 
 export const ConnectedListDate = styled.div`
@@ -82,20 +107,44 @@ export const ConnectedListDate = styled.div`
 		color:#828282;
 		margin: 0;
 		margin-left:20px;
-	} 
-	.red-text{
-		font-size: 12px;
-		color:#F49EBE;
-		text-transform: lowercase;
-	}
+    } 
+    
+    .red-text{
+        font-size: 12px;
+        color:#F49EBE;
+        text-transform: lowercase;
+    }
+
+    @media ${device.tablet} { 
+        p {
+         width: 15%;
+        }
+    }
+
+    @media ${device.mobile} { 
+        flex-direction: row;
+        width: 100%;
+        p {
+            width: auto;
+            font-size:12px;
+            margin-right: 5px;
+            margin: 16px 0 0 20px;
+        }
+    }
 `
 
 export const ExperienceContent = styled.div`
     display: flex;
 	flex-direction: column;
 	width: 75%;
-	
-	p {margin: 0};
+
+	p {
+        margin: 0
+    };
+
+    @media ${device.mobile} { 
+        margin-left:16px;
+    }
 
 `
 
@@ -118,6 +167,19 @@ export const ExperienceContentTitle = styled.div`
 		line-height: 24px;
 		color: #828282;
 	};
+
+    @media ${device.mobile} {
+		align-items: flex-start; 
+		h3{
+			font-size:16px;
+			width: 70%;
+			margin: 16px 0;
+		}
+		p{
+			margin: 16px 0;
+			font-size:12px;
+		}
+   	}
 
 `
 

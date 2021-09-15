@@ -1,16 +1,20 @@
 import styled from 'styled-components';
+import { device } from '../../breackpoints.styles';
 
 export const SkillsContainer = styled.div`
     display: flex;
     flex-direction: column;
     height: 100%;
+    @media ${device.mobile} { 
+        overflow-x: hidden;
+	}
 `;
 
 export const SkillsContent= styled.div`
     display: flex;
     flex-direction: column;
     flex: 2;
-    padding: 40px;
+    padding: 30px 40px;
 
     .container{
         display: flex;
@@ -18,6 +22,9 @@ export const SkillsContent= styled.div`
         justify-content: space-between;
         height: 100%;
     }
+    @media ${device.mobile} { 
+        padding: 30px 10px;      
+	}
 `;
 
 export const SkillsTitle = styled.div`
@@ -74,6 +81,17 @@ export const SkillsBar = styled.div`
             height: 5px;
         }
     }
+
+    @media ${device.mobile} { 
+		div {
+            align-items: flex-start;
+            flex-direction: column;
+
+            progress {
+                width: 100%;
+            }
+        }
+	}
 `;
 
 export const InterestContent = styled.div`
@@ -84,6 +102,8 @@ export const InterestContent = styled.div`
     width: 100%;
     flex: 1;
     background-color: rgba(255, 0, 86, 0.1);
+
+  
 `;
 
 export const InterestTitle = styled.div`
@@ -94,10 +114,26 @@ export const InterestTitle = styled.div`
     letter-spacing: 0.0015em;
     color: rgba(0, 0, 0, 0.87);
     margin: 25px auto;
+
+    @media ${device.mobile} { 
+        width: 100%;
+        text-align: left;
+        margin: 25px 0 25px 16px;
+	}
 `;
 
 export const InterestIcons = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-around;
+
+    @media ${device.mobile} { 
+        justify-content: flex-start;
+       
+        svg {
+           height: 30px;
+           width: 30px;
+           margin: 0 auto 20px auto;
+       }
+	}
 `;

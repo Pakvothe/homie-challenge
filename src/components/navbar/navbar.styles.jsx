@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../breackpoints.styles';
 
 export const NavbarContainer = styled.ul`
    width: 100%;
@@ -8,6 +9,10 @@ export const NavbarContainer = styled.ul`
    justify-content: space-between;
    margin: 0;
    padding: 0;
+
+   @media ${device.mobile} { 
+      width: calc(100% - 20px);
+    }
 `;
 
 export const NavbarLink = styled.li`
@@ -18,5 +23,9 @@ export const NavbarLink = styled.li`
          text-decoration: none;
          color: inherit;
          border-bottom:${({underline}) => underline && '2px solid #FF0364'};
+      }
+      svg {
+         width: 40px;
+         height: 40px;
       }
 `;

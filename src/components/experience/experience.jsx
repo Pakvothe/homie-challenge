@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../global-state/store';
+import strings from './strings';
 
 //Styles ===>
 import {
@@ -17,6 +18,7 @@ import {
 
 const Experience = () => {
     const [state] = useContext(Context);
+    const str = strings[state.language];
     const [jobs, setJobs] = useState();
 
     useEffect(() => {
@@ -45,7 +47,7 @@ const Experience = () => {
                         <ConnectedListContent>
                             <ConnectedListDate>
                                 <p>{job.date}</p>
-                                <p className="red-text">{job.month} meses</p>
+                                <p className="red-text">{job.month} {str?.months}</p>
                             </ConnectedListDate>
                             <ExperienceContent>
                                 <ExperienceContentTitle>

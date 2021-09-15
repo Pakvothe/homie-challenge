@@ -83,8 +83,8 @@ const Education = () => {
                         <div>
                             <LicenceTitle>{cert.title} </LicenceTitle>
                             <LicenceSubtitle>{cert.proof} </LicenceSubtitle>
-                            <LicenceDate>Aplicado en {cert.month} {cert.year}</LicenceDate>
-                            <LicenceCredential>ID Credencial {cert.credential}</LicenceCredential>
+                            <LicenceDate>{str?.applied} {cert.month} {cert.year}</LicenceDate>
+                            <LicenceCredential>{str?.credential} {cert.credential}</LicenceCredential>
                         </div>
                     </LicenceContent>
                 ))}

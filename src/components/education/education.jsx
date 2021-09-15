@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../global-state/store';
 import strings from './strings';
 
@@ -28,10 +28,10 @@ const Education = () => {
     const [certifications, setCertifications] = useState();
 
     useEffect(() => {
-        getEducation()
-        getCertifications()
+        getEducation();
+        getCertifications();
         // eslint-disable-next-line
-    }, [state.profileId])
+    }, [state.profileId]);
 
     const getEducation = async () => {
         const response = await fetch(`http://localhost:3000/education?profile_id=${state.profileId}`, {
@@ -40,10 +40,10 @@ const Education = () => {
 
         response.json().then(body => {
             if (response.ok) {
-                setEducation(body)
-            }
-        })
-    }
+                setEducation(body);
+            };
+        });
+    };
 
     const getCertifications = async () => {
         const response = await fetch(`http://localhost:3000/certifications?profile_id=${state.profileId}`, {
@@ -53,9 +53,9 @@ const Education = () => {
         response.json().then(body => {
             if (response.ok) {
                 setCertifications(body)
-            }
-        })
-    }
+            };
+        });
+    };
 
     return (
         <EducationContainer>
@@ -73,24 +73,24 @@ const Education = () => {
                             </EducationContent>
                         </ConnectedListContent>
                     </ConnectedListItem>
-                    ))}
+                ))}
             </ConnectedList>
-           <LicenceContainer>
+            <LicenceContainer>
                 <h2>{str?.licence}</h2>
-           { certifications && certifications.map((cert) => (
-                <LicenceContent key={cert.id}>
-                    <img src={cert.image} alt="certificate" />
-                    <div>
-                        <LicenceTitle>{cert.title} </LicenceTitle>
-                        <LicenceSubtitle>{cert.proof} </LicenceSubtitle>
-                        <LicenceDate>Aplicado en {cert.month} {cert.year}</LicenceDate>
-                        <LicenceCredential>ID Credencial {cert.credential}</LicenceCredential>
-                    </div>
-                </LicenceContent>
-            ))}
+                {certifications && certifications.map((cert) => (
+                    <LicenceContent key={cert.id}>
+                        <img src={cert.image} alt="certificate" />
+                        <div>
+                            <LicenceTitle>{cert.title} </LicenceTitle>
+                            <LicenceSubtitle>{cert.proof} </LicenceSubtitle>
+                            <LicenceDate>Aplicado en {cert.month} {cert.year}</LicenceDate>
+                            <LicenceCredential>ID Credencial {cert.credential}</LicenceCredential>
+                        </div>
+                    </LicenceContent>
+                ))}
             </LicenceContainer>
         </EducationContainer>
-    )
-}
+    );
+};
 
 export default Education;

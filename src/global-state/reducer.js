@@ -11,7 +11,7 @@ const Reducer = (state, action) => {
                 profileId: action.payload
             }
         default: return state;
-    }
-}
+    };
+};
 
 export default Reducer;

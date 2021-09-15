@@ -15,10 +15,10 @@ const Skills = () => {
     const [skills, setSkills] = useState();
 
     useEffect(() => {
-        getLanguages()
-        getSkills()
+        getLanguages();
+        getSkills();
         // eslint-disable-next-line
-    }, [state.profileId])
+    }, [state.profileId]);
 
     const getLanguages = async () => {
         const response = await fetch(`http://localhost:3000/languages?profile_id=${state.profileId}`, {
@@ -27,10 +27,11 @@ const Skills = () => {
 
         response.json().then(body => {
             if (response.ok) {
-                setLanguages(body)
+                setLanguages(body);
             }
-        })
-    }
+        });
+    };
+
     const getSkills = async () => {
         const response = await fetch(`http://localhost:3000/skills?profile_id=${state.profileId}`, {
             method: 'GET'
@@ -38,33 +39,33 @@ const Skills = () => {
 
         response.json().then(body => {
             if (response.ok) {
-                setSkills(body)
+                setSkills(body);
             }
-        })
-    }
+        });
+    };
 
     return (
         <SkillsContainer>
             <SkillsContent>
                 <div className="container">
                     <SkillsTitle>{str.language}</SkillsTitle>
-                    <SkillsBar>
-                        {languages && languages.map((lang) => (
-                            <div key={lang.id}>
+                    {languages && languages.map((lang) => (
+                        <SkillsBar key={lang.id}>
+                            <div >
                                 <p>{lang.name}</p>
                                 <progress id="file" max="100" value={lang.percentage}>{lang.percentage}</progress>
                             </div>
-                        ))}
-                    </SkillsBar>
-                    <SkillsTitle>{str.skills}</SkillsTitle>
-                    <SkillsBar>
+                        </SkillsBar>
+                    ))}
+                    <SkillsTitle style={{ marginTop: '20px' }}>{str.skills}</SkillsTitle>
                     {skills && skills.map((skill) => (
-                            <div key={skill.id}>
+                        <SkillsBar key={skill.id} >
+                            <div >
                                 <p>{skill.name}</p>
                                 <progress id="file" max="100" value={skill.percentage}>{skill.percentage}</progress>
                             </div>
-                        ))}
-                    </SkillsBar>
+                        </SkillsBar>
+                    ))}
                 </div>
             </SkillsContent>
             <InterestContent>
@@ -81,4 +82,4 @@ const Skills = () => {
     )
 }
 
-export default Skills
+export default Skills;

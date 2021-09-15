@@ -1,5 +1,5 @@
-import React from 'react'
-import { ContentBoxContainer } from './contentBox.styles'
+import React from 'react';
+import { ContentBoxContainer } from './contentBox.styles';
 import { Route } from 'react-router-dom';
 
 //components ==>
@@ -25,7 +25,7 @@ const ContentBox = () => {
                 <Skills />
             </Route>
         </ContentBoxContainer>
-    )
-}
+    );
+};
 
-export default ContentBox
+export default ContentBox;

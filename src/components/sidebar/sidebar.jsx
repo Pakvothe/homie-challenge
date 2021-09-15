@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import { SidebarContainer, Photo, SidebarContent, LanguageButton, SidebarName, About, Contact } from './sidebar.styles';
 import Mobile from '../../assets/icons/mobile';
 import Mail from '../../assets/icons/mail';
@@ -10,18 +10,18 @@ import { Context } from '../../global-state/store';
 import strings from './strings';
 
 const Sidebar = () => {
-    const [state, dispatch] = useContext(Context)
+    const [state, dispatch] = useContext(Context);
     const str = strings[state.language];
     const [profile, setProfile] = useState();
 
     const handleLanguage = (prop) => {
-        dispatch({ type: 'CHANGE_LANGUAGE', payload: prop })
-    }
+        dispatch({ type: 'CHANGE_LANGUAGE', payload: prop });
+    };
 
     useEffect(() => {
         getProfile();
         // eslint-disable-next-line
-    }, [])
+    }, []);
 
     const getProfile = async () => {
         const response = await fetch("http://localhost:3000/profile", {
@@ -31,11 +31,11 @@ const Sidebar = () => {
         response.json().then(body => {
             const profileId = body[0].id;
             if (response.ok) {
-                dispatch({ type: 'SET_PROFILE', payload: profileId })
+                dispatch({ type: 'SET_PROFILE', payload: profileId });
                 setProfile(body[0]);
-            }
-        })
-    }
+            };
+        });
+    };
 
     return (
         <SidebarContainer>
@@ -68,7 +68,7 @@ const Sidebar = () => {
                 </div>
             </SidebarContent>
         </SidebarContainer>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;

@@ -20,9 +20,9 @@ const Experience = () => {
     const [jobs, setJobs] = useState();
 
     useEffect(() => {
-        getJob()
+        getJob();
         // eslint-disable-next-line
-    }, [state.profileId])
+    }, [state.profileId]);
 
     const getJob = async () => {
         const response = await fetch(`http://localhost:3000/jobs?profile_id=${state.profileId}`, {
@@ -31,10 +31,10 @@ const Experience = () => {
 
         response.json().then(body => {
             if (response.ok) {
-                setJobs(body)
-            }
-        })
-    }
+                setJobs(body);
+            };
+        });
+    };
 
 
     return (
@@ -64,7 +64,7 @@ const Experience = () => {
                 ))}
             </ConnectedList>
         </ExperienceContainer>
-    )
-}
+    );
+};
 
 export default Experience;

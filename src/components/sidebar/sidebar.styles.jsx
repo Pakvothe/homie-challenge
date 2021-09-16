@@ -96,7 +96,7 @@ export const SidebarContent = styled.div`
 `;
 
 export const LanguageButton = styled.button`
-   background-color: ${({sidebar}) => sidebar ? 'white' : '#e9e9e9'};
+   background-color: #e9e9e9;
    border: none;
    outline: none;
    padding: 8px 10px 8px 8px;
@@ -112,6 +112,9 @@ export const LanguageButton = styled.button`
       margin-right: 2px;
    }
 
+   @media ${device.tabletL} { 
+      background-color: ${({sidebar}) => sidebar ? 'white' : '#e9e9e9'};
+    }
    @media ${device.mobile} { 
       margin-right: 20px;
     }

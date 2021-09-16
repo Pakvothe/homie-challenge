@@ -34,6 +34,3 @@ You can contact through my email ortiz.franco@yandex.com
 
 ## Challenge link
 <https://www.notion.so/Prueba-CV-3593259c45b24634b08ec2148cfd7715>
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
